@@ -107,7 +107,7 @@ Note: The model name is determined by the screen resolution and size
 
     | Board               | Version  |
     |------------------------|----------|
-    | ESP32 Board            | V3.0.1   |
+    | ESP32 Board            | V3.1.0   |
 
 
 3. **Install Required Libraries**
