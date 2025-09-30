@@ -106,7 +106,12 @@ Note: The model name is determined by the screen resolution and size
 - select `3.1.0` and above,click the `INSTALL` button to install
 
 3. **Install Required Libraries**
-   
+
+   | Component               | Version  |
+|------------------------|----------|
+| ESP32 Board            | V3.0.1   |
+| ESP32 Display Panel    | V1.0.3   |
+| LVGL Graphics Library  | V8.0.4   |
   `ESP32_Display_Panel` and its dependencies are available in Arduino Library Manager. Install online:
 
   - In Arduino IDE, go to `Sketch` > `Include Library` > `Manage Libraries...`.
