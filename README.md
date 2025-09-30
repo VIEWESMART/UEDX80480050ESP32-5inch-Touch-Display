@@ -104,8 +104,18 @@ Note: The model name is determined by the screen resolution and size
 - Navigate to `Tools` > `Board` > `Boards Manager`
 - Search for `esp32` by `Espressif Systems`
 - select `3.1.0` and above,click the `INSTALL` button to install
+    | Board               | Version  |
+    |------------------------|----------|
+    | ESP32 Board            | V3.1.0   |
 
 3. **Install Required Libraries**
+   
+    | Libraries               | Version  |
+    |------------------------|----------|
+    | ESP32 Display Panel    | V1.0.3   |
+    | ESP32 IO Expander      | V1.0.1   |
+    | esp-lib-utils          | V0.1.2   |
+    | LVGL Graphics Library  | V8.4.0   |
    
   `ESP32_Display_Panel` and its dependencies are available in Arduino Library Manager. Install online:
 
@@ -170,18 +180,29 @@ Note: The model name is determined by the screen resolution and size
 
 7. Configure tool options :
     #### ESP32-S3
-    | Setting                               | Value                         |
-    | :-------------------------------: | :-------------------------------: |
-    | Board                                 | ESP32S3 Dev Module            |
-    | Core Debug Level                | None                                |
-    | USB CDC On Boot                | Disabled                             |
-    | USB DFU On Boot                | Disabled                             |
-    | Flash Size                           | 16MB (128Mb)                   |
-    | Partition Scheme                | 16M Flash (3MB APP/9.9MB FATFS)     |
-    | PSRAM                                | OPI PSRAM                      |
+    | Setting                                 | Value                              |
+    |-----------------------------------------|------------------------------------|
+    | Board                                   | ESP32S3 Dev Module                 |
+    | USB CDC On Boot                         | Disabled                           |
+    | CPU Frequency                           | 240MHz (WiFi)                      |
+    | Core Debug Level                        | None                               |
+    | USB DFU On Boot                         | Disabled                           |
+    | Erase All Flash Before Sketch Upload    | Disabled                           |
+    | Events Run On                           | Core 1                             |
+    | Flash Mode                              | QIO 80MHz                          |
+    | Flash Size                              | $${\color{red}16MB (128Mb)}$$      |
+    | JTAG Adapter                            | Disabled                           |
+    | Arduino Runs On                         | Core 1                             |
+    | USB Firmware MSC On Boot                | Disabled                           |
+    | Partition Scheme                        | $${\color{red}16MB Flash (3MB APP / 9.9MB FATFS)}$$ |
+    | PSRAM                                   | $${\color{red}OPI PSRAM}$$         |
+    | Upload Mode                             | UART0 / Hardware CDC               |
+    | Upload Speed                            | 921600                             |
+    | USB Mode                                | Hardware CDC and JTAG              |
+    | Zigbee Mode                             | Disabled                           |
    
-8. Select the correct port.
-9. Click "<kbd>[√](image/8.png)</kbd>" in the upper right corner to compile,If the compilation is correct, connect the microcontroller to the computer,Click "<kbd>[→](image/9.png)</kbd>" in the upper right corner to download.
+9. Select the correct port.
+10. Click "<kbd>[√](image/8.png)</kbd>" in the upper right corner to compile,If the compilation is correct, connect the microcontroller to the computer,Click "<kbd>[→](image/9.png)</kbd>" in the upper right corner to download.
 
 > [!NOTE]
 > LVGL color swap settings,`SPI` and `QSPI` screens need to set the macro of `lv_conf.h` > `LV_COLOR_16_SWAP` to `1` and the `RGB` screen to `0`, as follows :
