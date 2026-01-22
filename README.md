@@ -204,7 +204,7 @@ Examples are available in the [GitHub Repository](examples).
 
 > [!TIP]
 > **Configuration**: In `esp_panel_board_supported_conf.h`, ensure you uncomment:
-> `#define BOARD_VIEWE_UEDX80480070E_WB_A`
+> `#define BOARD_VIEWE_UEDX80480050E_WB_A`
 > Do not enable both `ESP_PANEL_BOARD_DEFAULT_USE_SUPPORTED` and `ESP_PANEL_BOARD_DEFAULT_USE_CUSTOM`
 > You cannot enable multiple esp supported panel boards at the same time.
 
@@ -213,7 +213,7 @@ Examples are available in the [GitHub Repository](examples).
     * go to GitHub to download the program. You can download the main branch by clicking on the "<> Code" with green text
     * Open the example using VS Code(PlatformIO)
 2.  **Configure PlatformIO**:
-    * This example uses the `BOARD_ESPRESSIF_ESP32_S3_LCD_EV_BOARD_2_V1_5` board as default. Choose `BOARD_VIEWE_UEDX80480070E_WB_A` in the `[platformio]:default_envs` of the `platformio.ini` file.
+    * This example uses the `BOARD_ESPRESSIF_ESP32_S3_LCD_EV_BOARD_2_V1_5` board as default. Choose `BOARD_VIEWE_UEDX80480050E_WB_A` in the `[platformio]:default_envs` of the `platformio.ini` file.
 3.  **Configure the example**:
     - [Optional] Edit the macro definitions in the `lvgl_v8_port.h` file
         - **If using `RGB/MIPI-DSI` interface**, change the `LVGL_PORT_AVOID_TEARING_MODE` macro definition to `1`/`2`/`3` to enable the avoid tearing function. After that, change the `LVGL_PORT_ROTATION_DEGREE` macro definition to the target rotation degree
