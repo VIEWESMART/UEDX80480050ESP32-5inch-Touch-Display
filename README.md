@@ -1,10 +1,10 @@
 <h1 align = "center">VIEWE ESP32-S3 Smart Display Quick Guide </h1>
-<p align="center">
-    <img src="image/Main_Image.png" alt="">
-    <h1 align = "center" style="font-size: 18px;">Model: UEDX80480050E-WB-A</h1>
-</p>
 
 * **[中文版](./README_CN.md)**
+
+<p align="center">
+    <img src="image/Main_Image.png" alt="">
+</p>
 
 
 ## PurchaseLink
