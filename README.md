@@ -93,7 +93,7 @@ With rich connectivity and powerful processing capabilities, the UEDX80480050E-W
 9. **Reset Buttons**  
    RESET button (CHIP-EN) for resetting the board.
 
-10. **4-pin 1.5mm**  
+10. **4-pin 1.25mm**  
     You can choose to use I2C, UART and other interfaces according to your actual situation. If you are worried about interference, you can remove the RGB lights on the development board.
 
 11. & 12. **External GPIO Headers**  
