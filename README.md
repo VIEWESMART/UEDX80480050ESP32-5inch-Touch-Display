@@ -1,114 +1,179 @@
-<h1 align = "center">VIEWE ESP32-S3 Smart Display Quick Guide </h1>
+<h1 align = "center">VIEWE 5.0" 800*480 ESP32-S3 Smart Display Quick Guide </h1>
 
 * **[中文版](./README_CN.md)**
-
+  
 <p align="center">
     <img src="image/Main_Image.png" alt="">
 </p>
 
-
-## PurchaseLink
-
-| Product                     | SOC           |  FLASH  |  PSRAM   | Link                   |
-| :------------------------: | :-----------: |:-------: | :---------: | :------------------: |
-| UEDX80480050E-WB-A V1.1   | ESP32S3R8 |   16M   | 8M (Octal SPI) | [VIEWE Mall](https://viewedisplay.com/product/esp32-7-inch-800x480-rgb-ips-tft-display-touch-screen-arduino-lvgl-uart/)  |
+---
 
 ## 1. Introduction
 
-The **UEDX80480050E-WB-A** is a high-performance HMI smart display module equipped with a 5-inch RGB screen (800x480). Powered by the **ESP32-S3-WROOM-1-N16R8** module, it integrates 2.4GHz Wi-Fi and Bluetooth 5 (LE) capabilities.
+UEDX80480050E-WB-B is a high-performance smart display development board based on the ESP32-S3, featuring a 5-inch RGB touch screen (800x480). It is designed by VIEWE and is suitable for IoT and HMI applications requiring rich peripheral interfaces and Wi-Fi/BLE connectivity.
 
-The board features a high-speed **RGB Interface** for the display, ensuring smooth UI performance . It also includes a Capacitive Touch Panel (GT911), rich GPIO expansion, and supports popular frameworks like **Arduino**, **ESP-IDF**, and **PlatformIO**.
+> [!NOTE]
+> The UEDX80480050E-WB-A development board will be gradually phased out and replaced by the UEDX80480050E-WB-B development board.
+> New designs are recommended to migrate to this version.
 
 ### 1.1 Product Features
-* **Processor**:
-    * **ESP32-S3**: Xtensa® Dual-Core 32-bit LX7 MCU @ 240MHz.
-    * Integrated 2.4 GHz Wi-Fi (802.11 b/g/n) & Bluetooth 5 (LE).
-* **Memory**:
-    * **16MB** Quad SPI Flash.
-    * **8MB** Octal SPI PSRAM.
-* **Display & Touch**:
-    * **Screen**: 5.0-inch TFT LCD (800x480 Resolution).
-    * **Interface**: 16-bit RGB Interface (High Refresh Rate).
-    * **Driver IC**: ST7262E43-G4.
-    * **Touch**: Capacitive Multi-Touch (GT911) via I2C.
-* **Peripherals**:
-    * **Connectivity**: USB-C (UART/Program), RS485, CAN, RS232 (Optional/Expansion).
-    * **Storage**: TF Card Slot (SDIO/SPI).
-    * **Audio**: Onboard Speaker Connector & Buzzer.
-    * **Expansion**: GPIO Header (UART, I2C, SPI, IOs).
+
+**CPU:**
+- **Processor**
+  - Equipped with an Xtensa 32-bit LX7 dual-core processor, with a main frequency up to 240 MHz.
+  - Integrated Wi-Fi 2.4GHz (802.11 b/g/n) and Bluetooth 5 (LE) & BLE Mesh.
+- **Memory**
+  - 8 MB PSRAM.
+  - 16 MB Flash.
+- **Peripheral Interfaces**
+  - Two 2\*20 Pin Headers are on-board, breaking out multiple programmable GPIOs, supporting SPI, UART, I2C, I2S, LCD, Camera, USB OTG, and other interfaces.
+  - On-board USB Type-C port for power supply, programming, and serial debugging (CH340C).
+  - On-board Micro SD card slot (SPI interface).
+  - Reset and Boot buttons.
+
+**Display:**
+- Size: 5.0 Inch
+- Resolution: 800 * 480
+- Pixel Arrangement：RGB Vertical Stripe
+- Interface Mode：40PIN RGB 24bits
+- Driver IC： ST7262/ST72611
+- Touch IC: GT911
+- Brightness: 400/500 cd/m²
+- Touch: CTP
+> [!NOTE]
+> We have two types of screens. They are identical except for the different lengths of the touch cables in hardware. We will select and match the screens based on available inventory.
+
+**Other:**
+- Operation Temperature：-20~70℃
+- Storage Temperature：-30~80℃
 
 ### 1.2 Applications
-* Industrial HMI Control Panels
-* Smart Home Automation Centers
-* Medical Devices & Instruments
-* IoT Data Dashboards
 
-## 2. Hardware Description
+With rich connectivity and powerful processing capabilities, the UEDX80480050E-WB-B is an ideal choice for IoT devices in the following areas:
 
-### 2.1 Module Overview
-The detailed component layout is shown below:
+- Smart Home Control Panels
+- Industrial Automation HMI
+- Smart Appliances
+- Consumer Electronics
+- Wireless Data Loggers
+- Touch Screen Interfaces
+- Educational Learning Platforms
 
-![Board Layout](image/overview.png)
+---
 
-| No. | Component | Description |
-| :--- | :--- | :--- |
-| **①** | **ESP32-S3-N16R8** | Main SoC (16MB Flash / 8MB PSRAM). |
-| **②** | **USB-C Port** | **Power (5V)** / Firmware Download / UART Debug (CH340C). |
-| **③** | **Display Interface** | 40-Pin RGB Interface FPC Connector. |
-| **④** | **Touch Interface** | 6-Pin Capacitive Touch Header (I2C). |
-| **⑤** | **TF Card Slot** | For external storage (Images/Logs). |
-| **⑥** | **UART/RS485** | Reserved pads/header for Industrial Serial communication. |
-| **⑦** | **BOOT Button** | Press during power-on to enter Download Mode. |
-| **⑧** | **RESET Button** | Hardware System Reset. |
-| **⑨** | **Expansion Header** | GPIOs, 5V, 3.3V, GND for external sensors. |
+## 2. Product information
 
-### 2.2 GPIO Definition (Pinout)
-The mapping for the Display and Touch interfaces:
-#### **Display (RGB Interface)**
-| Pin Name | ESP32-S3 Pin | Function |
-| :--- | :--- | :--- |
-| **DE** | IO40 | Data Enable |
-| **VSYNC** | IO41 | Vertical Sync |
-| **HSYNC** | IO39 | Horizontal Sync |
-| **PCLK** | IO42 | Pixel Clock |
-| **R0 - R4** | IO45, 48, 47, 21, 14 | Red Data Lines |
-| **G0 - G5** | IO5, 6, 7, 15, 16, 4 | Green Data Lines |
-| **B0 - B4** | IO8, 3, 46, 9, 1 | Blue Data Lines |
-| **BL** | IO2 | Backlight PWM |
+### 2.1 Interface Description
 
-#### **Touch (GT911)**
-| Pin Name | ESP32-S3 Pin | Function |
-| :--- | :--- | :--- |
-| **SDA** | IO19 | I2C Data |
-| **SCL** | IO20 | I2C Clock |
-| **INT** | IO18 | Interrupt |
-| **RST** | IO38 | Reset |
+![Board Layout](image/Layout.jpg)
 
-#### **Peripherals**
-| Interface | ESP32-S3 Pin | Description |
-| :--- | :--- | :--- |
-| **UART0** | IO43 (TX), IO44 (RX) | USB-to-UART (Debug/Upload) |
-| **SD Card** | IO10 (CS), IO11 (MOSI), IO12 (CLK), IO13 (MISO) | SPI/SDIO Mode |
-| **RGB LED** | IO0 | WS2812B (Optional) |
+1. **Main Control Chip:** ESP32S3-MCN16R8  
+   Dual-core processor, up to 240MHz operating frequency.
 
-## 3. Software
+2. **Display Interface:**  
+   40-Pin RGB 24-bit display output, supporting R0-R7, G0-G7, B0-B7. However, only RGB565 can be used due to chip limitations. Please refer to the following Display Interface table for specific I/O details and descriptions.
+
+3. **SD Card Slot**  
+   SPI interface connected for external storage expansion.
+
+4. **Touch interface**  
+   I2C interface (SDA/SCL), plus interrupt and reset pins for GT911 CTP. Please refer to the following TP Interface table for specific I/O details and descriptions.
+
+5. **USB Type-C interface**  
+   Used for 5V DC power supply.
+
+6. **UART Serial port**  
+   Standard TX/RX connectivity for debugging or communication.
+
+7. **RGB-LED (WS2812B)**
+
+8. **Boot Buttons**  
+   BOOT button (GPIO0) for firmware download mode.
+
+9. **Reset Buttons**  
+   RESET button (CHIP-EN) for resetting the board.
+
+10. **4-pin 1.5mm**  
+    You can choose to use I2C, UART and other interfaces according to your actual situation. If you are worried about interference, you can remove the RGB lights on the development board.
+
+11. & 12. **External GPIO Headers**  
+    Dual-row 2\*21 headers providing access to a wide range of GPIOs, including ADC, touch sensors, and standard digital I/O.
+
+#### Display Interface
+
+| Pin No. | Symbol | I/O | Description |
+|---------|--------|-----|-------------|
+| 1       | LEDK   | P   | Power supply for backlight cathode |
+| 2       | LEDA   | P   | Power supply for backlight anode |
+| 3       | GND    | P   | Power Ground |
+| 4       | VDD    | P   | Power supply to the internal logic power regulator (3.3V) |
+| 5-12    | R0-R7  | I   | Red data input. |
+| 13-20   | G0-G7  | I   | Green data input. |
+| 21-28   | B0-B7  | I   | Blue data input. |
+| 29      | GND    | P   | Power Ground |
+| 30      | CLK    | I   | Pixel clock input pin, Negative polarity |
+| 31      | DISP   | I   | Standby mode. Normally pulled high. |
+| 32      | HSYNC  | I   | Horizontal sync signal, Negative polarity |
+| 33      | VSYNC  | I   | Vertical sync signal, Negative polarity |
+| 34      | DEN    | I   | Data input enable. Display access is enabled when DE is “H” |
+| 35      | NC     | I   | Dummy |
+| 36      | GND    | P   | Power Ground |
+| 37      | XR     | -   | Dummy |
+| 38      | YD     | -   | Dummy |
+| 39      | XL     | -   | Dummy |
+| 40      | YU     | -   | Dummy |
+
+*I：Input；O：Output；P：Power*
+
+#### TP Interface
+
+| Pin No. | Symbol  | I/O | Description |
+|---------|---------|-----|-------------|
+| 1       | GPIO20  | P   | TP SCL |
+| 2       | GPIO19  | P   | TP SDA |
+| 3       | GPIO18  | P   | INT (It's not actually used) |
+| 4       | GND     | P   | Power Ground |
+| 5       | VDD     | I   | Power supply to the internal logic power regulator (3.3V) |
+| 6       | GPIO38  | I   | RTP-csb-CTP-rst |
+| 7       | GND     | P   | Power Ground |
+| 8       | GND     | P   | Power Ground |
+
+### 2.2 GPIO Definition
+
+![Pin Introduction](image/GPIO.png)
+
+---
+
+## 3. Functional Block Diagram
+
+![Pin Introduction](image/Functional.png)
+
+> **Note:** The ESP32-S3 features a 2.4 GHz radio that supports Wi-Fi (802.11 b/g/n) and Bluetooth 5 (LE). Because they share the same RF front-end, Wi-Fi and BLE cannot transmit or receive simultaneously; the radio switches between protocols as needed. This is indicated by “Shared Radio” in the block.
+
+---
+
+## 4. Software
 
 We provide comprehensive support for **Arduino**, **PlatformIO**, and **ESP-IDF** frameworks, with pre-ported **LVGL** examples.
 
-### 3.1 Software Examples
-Examples are available in the [GitHub Repository](examples).
+> [!TIP]
+> There is no software difference between UEDX80480050E-WB-A and UEDX80480050E-WB-B. Therefore, we will use them uniformly and refer to UEDX80480050E-WB-A as the name of the development board hereinafter.
+
+### 4.1 Software Examples
+Examples are available in the [GitHub Repository(examples)](/examples).
 
 | Framework | Example Path | Description |
 | :--- | :--- | :--- |
 | **Arduino** | `examples/arduino/gui/lvgl_v8` | **LVGL Benchmark**: Demonstrates 800x480 UI rendering. It can also be directly opened in the Arduino IDE. |
-| **esp-idf** | `examples/esp_idf/lvgl_port` | **lvgl port**: Example of porting and using lvgl in esp-idf |
+| **esp-idf** | `examples/esp_idf/lvgl_v9_demo_4_3inch` | **lvgl port**: Example of porting and using lvgl in esp-idf |
+| **esp-idf** | `examples/esp_idf/squareline_coffee_4_3inch` | **lvgl port**: Example of porting and using squareline in esp-idf |
 | **esp-idf** | `examples/esp_idf/sd_card_spi` | **sd_card**: Examples of using an SD card on a device |
 | **PlatformIO**| `examples/platformio/lvgl_v8_port` | **lvgl v8 port**: Usage example of lvgl v8. |
 
-### 3.2 Getting Started
+### 4.2 Getting Started
 
-#### 3.2.1 Preparation
-* **Hardware**: UEDX80480070E-WB-A Board, USB-C Cable.
+#### 4.2.1 Preparation
+* **Hardware**: UEDX80480050E-WB-A or UEDX80480050E-WB-B Board, USB-C Cable.
 * **Software**: VS Code (ESP-IDF v5.3+) or Arduino IDE (v2.0+) or VS Code (PlatformIO).
 * **Library**: The following libraries are needed for Arduino IDE and PlatformIO
 
@@ -119,7 +184,7 @@ Examples are available in the [GitHub Repository](examples).
     |`esp-lib-utils`| `Arduino automatic selection` |The dependency library of `ESP32_Display_Panel` should be selected for installation together during the installation process.|
     |`lvgl`| `8.4.0` | A free and open-source embedded graphics library. |
 
-#### 3.2.2  ESP-IDF Setup
+#### 4.2.2  ESP-IDF Setup
 1.  **Open platformio example**
     * go to GitHub to download the program. You can download the main branch by clicking on the "<> Code" with green text
     * Open the example using VS Code(ESP-IDF)
@@ -128,33 +193,24 @@ Examples are available in the [GitHub Repository](examples).
     * connect the microcontroller to the computer.If the compilation is correct.
     * Click `upload` in the upper right corner to download.
 
-#### 3.2.3 Arduino Setup ([Novice tutorial](https://github.com/VIEWESMART/VIEWE-Tutorial/blob/main/Arduino%20Tutorial/Arduino%20Getting%20Started%20Tutorial.md))
-1.  **Install[Arduino](https://www.arduino.cc/en/software)**
-    - Choose installation based on your system type.
-    - Newcomers please refer to the [beginner's tutorial](https://github.com/VIEWESMART/VIEWE-Tutorial/blob/main/Arduino%20Tutorial/Arduino%20Getting%20Started%20Tutorial.md).
-2.  **Install ESP32 Board Package**:
-    - Open Arduino IDE
-    - Go to `File` > `Preferences`
-    - Add to `Additional boards manager URLs`:
-    ```
-    https://espressif.github.io/arduino-esp32/package_esp32_index.json
-    ```
+#### 4.2.3 Arduino Setup([Novice tutorial](https://github.com/VIEWESMART/VIEWE-Tutorial/blob/main/Arduino%20Tutorial/Arduino%20Getting%20Started%20Tutorial.md))
+1.  **Install ESP32 Board Package**:
     * Go to *Tools > Board > Boards Manager*.
     * Search `esp32` by Espressif and install version **3.0.0+**.
-3.  **Install Libraries**:
+2.  **Install Libraries**:
     * Go to *Sketch > Include Library > Library Manager*.
     * Search `ESP32_Display_Panel` by Espressif and install version **1.0.3+**. You will be prompted whether to install its dependencies, please click **INSTALL ALL** to install all.
     * Install `lvgl` (v8.4.0 recommended).
-4.  **Open example**:
+3.  **Open example**:
     * Navigate to `File` > `Examples` > `ESP32_Display_Panel`
     * Select `Arduino` > `gui` > `lvgl_v8` > `simple_port`
-5.  **Select Board**:
+4.  **Select Board**:
     * Target: `ESP32S3 Dev Module`.
     * Settings:
         * **Flash Size**: 16MB (128Mb)
         * **Partition Scheme**: 16M Flash (3MB APP/9.9MB FATFS)
         * **PSRAM**: **OPI PSRAM** (Crucial!)
-6.  **config esp supported panel board**:
+5.  **config esp supported panel board**:
     * Open the `esp_panel_board_supported_conf.h` file in the example
     * Enable this file: change the `ESP_PANEL_BOARD_DEFAULT_USE_SUPPORTED` macro definition to `1`
     * ensure you uncomment: `#define BOARD_VIEWE_UEDX80480050E_WB_A`
@@ -169,12 +225,12 @@ Examples are available in the [GitHub Repository](examples).
     ...
     // #define BOARD_VIEWE_SMARTRING
     // #define BOARD_VIEWE_UEDX24240013_MD50E
-    // #define BOARD_VIEWE_UEDX24320024E_WB_A
-    // #define BOARD_VIEWE_UEDX24320028E_WB_A
-    // #define BOARD_VIEWE_UEDX24320035E_WB_A
+    // #define BOARD_VIEWE_UEDX25020024E_WB_A
+    // #define BOARD_VIEWE_UEDX25020028E_WB_A
+    // #define BOARD_VIEWE_UEDX25020035E_WB_A
     // #define BOARD_VIEWE_UEDX32480035E_WB_A
     // #define BOARD_VIEWE_UEDX46460015_MD50ET
-    // #define BOARD_VIEWE_UEDX48270043E_WB_A
+    // #define BOARD_VIEWE_UEDX48270050E_WB_A
     // #define BOARD_VIEWE_UEDX48480021_MD80E_V2
     // #define BOARD_VIEWE_UEDX48480021_MD80E
     // #define BOARD_VIEWE_UEDX48480021_MD80ET
@@ -187,16 +243,16 @@ Examples are available in the [GitHub Repository](examples).
     // #define BOARD_VIEWE_UEDX80480070E_WB_A
     ...
     ```
-7.  **Configure the example**:
+6.  **Configure the example**:
     - [Optional] Edit the macro definitions in the `lvgl_v8_port.h` file
         - **If using `RGB/MIPI-DSI` interface**, change the `LVGL_PORT_AVOID_TEARING_MODE` macro definition to `1`/`2`/`3` to enable the avoid tearing function. After that, change the `LVGL_PORT_ROTATION_DEGREE` macro definition to the target rotation degree
         - **If using other interfaces**, please don't modify the `LVGL_PORT_AVOID_TEARING_MODE` and `LVGL_PORT_ROTATION_DEGREE` macro definitions
     - [Optional] Edit the macro definitions in the `lv_conf.h` file
         - **If using `SPI/QSPI` interface**, change the `LV_COLOR_16_SWAP` macro definition to `1`.
-8.  **Select the correct port**:
+7.  **Select the correct port**:
     * Connect to the device.
     * Go to *Tools > Port*, Select the corresponding port.
-9.  **Compile and upload**:
+8.  **Compile and upload**:
     * Click `√` in the upper right corner to compile.
     * connect the microcontroller to the computer.If the compilation is correct.
     * Click `→` in the upper right corner to download.
@@ -208,7 +264,7 @@ Examples are available in the [GitHub Repository](examples).
 > Do not enable both `ESP_PANEL_BOARD_DEFAULT_USE_SUPPORTED` and `ESP_PANEL_BOARD_DEFAULT_USE_CUSTOM`
 > You cannot enable multiple esp supported panel boards at the same time.
 
-#### 3.2.4 PlatformIO Setup
+#### 4.2.4 PlatformIO Setup
 1.  **Open platformio example**
     * go to GitHub to download the program. You can download the main branch by clicking on the "<> Code" with green text
     * Open the example using VS Code(PlatformIO)
@@ -224,17 +280,21 @@ Examples are available in the [GitHub Repository](examples).
     - Click the `→`(upload) button
 ---
 
+## 5. Related Documents
 
-## 4. Related Documents & Resources
+- [products specification(WB-A)](datasheet/UEDX80480050E-WB-A%20V3.2%20SPEC.pdf)
+- [products specification(WB-B)](datasheet/UEDX80480050E-WB-B%20V1.0%20SPEC.pdf)
+- [UEDX80480050E-WB-A Schematic Diagram (PDF)](Schematic/UEDX48480050E-WB-A%20V1.3.SCH.pdf)
+- [UEDX80480050E-WB-B Schematic Diagram (PDF)](Schematic/UEDX80480050E-WB-B.pdf)
+- [2D Drawing (dwg)](2D%20drawings/PLCM-DX80480050E-WB-B.dwg)
+- [Display Specification (PDF)](datasheet/UE050WV-RB40-A070A_V1.0.pdf)
+- [Display Chip Specification (PDF)](datasheet/ST7262.pdf)
+- [Touch Chip Specification (Chinese)](datasheet/n/GT911_CN_Datasheet.pdf)
+- [Touch Chip Specification (English)](datasheet//GT911_EN_Datasheet.pdf)
+- [ESP32-S3-WROOM-1 Datasheet (Chinese)](datasheet/esp32-s3-wroom-1_wroom-1u_datasheet_cn.pdf)
+- [ESP32-S3-WROOM-1 Datasheet (English)](datasheet/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf)
 
-* [products specification](information/UEDX80480050E-WB-A%20V3.3%20SPEC.pdf)
-* [schematic](https://github.com/VIEWESMART/UEDX80480050ESP32-5inch-Touch-Display/blob/main/Schematic/5.0.png)
-* [Display Datasheet](information/UE050WV-RB40-L070A.pdf)
-* [Touch IC Datasheet_EN](information/GT911_EN_Datasheet.pdf)
-* [Touch IC Datasheet_CN](information/GT911_CN_Datasheet.pdf)
-* [5050RGB-LED](information/C2843785_RGB%2BLED(Built-in%20IC)_XL-5050RGBC-WS2812B_specification_WJ1123912.PDF)
-* [CH340C](information/C84681_USB%20Conversion%20chip_CH340C_specification_WJ1187874.PDF)
-
+---
 
 ## 6. firmware download
 1. Open the project file "tools" and locate the ESP32 burning tool. Open it.
@@ -248,7 +308,9 @@ Examples are available in the [GitHub Repository](examples).
     <img src="image/11.png" alt="example">
 </p>
 
-## FAQ
+---
+
+## 7. FAQ
 
 * Q. After reading the above tutorials, I still don't know how to build a programming environment. What should I do?
 * A. If you still don't understand how to build an environment after reading the above tutorials, you can refer to the [VIEWE-FAQ]() document instructions to build it.
@@ -267,6 +329,11 @@ Examples are available in the [GitHub Repository](examples).
 
 * Q. Why is my board continuously failing to download the program?
 * A. Please hold down the "BOOT" button and try downloading the program again.
+
+
+
+
+
 
 
 
