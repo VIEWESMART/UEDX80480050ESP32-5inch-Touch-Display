@@ -26,7 +26,7 @@ UEDX80480050E-WB-B is a high-performance smart display development board based o
   - 8 MB PSRAM.
   - 16 MB Flash.
 - **Peripheral Interfaces**
-  - Two 2\*20 Pin Headers are on-board, breaking out multiple programmable GPIOs, supporting SPI, UART, I2C, I2S, LCD, Camera, USB OTG, and other interfaces.
+  - Two 2\*21 Pin Headers are on-board, breaking out multiple programmable GPIOs, supporting SPI, UART, I2C, I2S, LCD, Camera, USB OTG, and other interfaces.
   - On-board USB Type-C port for power supply, programming, and serial debugging (CH340C).
   - On-board Micro SD card slot (SPI interface).
   - Reset and Boot buttons.
