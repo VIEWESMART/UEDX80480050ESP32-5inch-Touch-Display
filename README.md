@@ -98,6 +98,8 @@ With rich connectivity and powerful processing capabilities, the UEDX80480050E-W
 
 11. & 12. **External GPIO Headers**  
     Dual-row 2\*21 headers providing access to a wide range of GPIOs, including ADC, touch sensors, and standard digital I/O.
+> [!NOTE]
+> Our company will select one of the two touch interfaces according to the actual screen configuration, and both will not be equipped simultaneously.
 
 #### Display Interface
 
@@ -141,6 +143,9 @@ With rich connectivity and powerful processing capabilities, the UEDX80480050E-W
 ### 2.2 GPIO Definition
 
 ![Pin Introduction](image/GPIO.png)
+
+> [!NOTE]
+> By default, IO18 is a common idle GPIO port. To use it as a touch interrupt pin, move the resistor from R28 to R33.
 
 ---
 
