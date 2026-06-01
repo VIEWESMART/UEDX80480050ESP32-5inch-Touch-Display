@@ -1,0 +1,20 @@
+{
+  "idf.openOcdConfigs": [
+    "board/esp32s3-builtin.cfg"
+  ],
+  "idf.espIdfPathWin": "d:\\Espressif\\vscode\\frameworks\\v5.5.1\\esp-idf",
+  "idf.toolsPathWin": "d:\\Espressif\\vscode",
+  "idf.pythonInstallPath": "d:\\Espressif\\vscode\\tools\\idf-python\\3.11.2\\python.exe",
+  "idf.customExtraVars": {
+    "IDF_TARGET": "esp32s3"
+  },
+  "clangd.path": "d:\\Espressif\\vscode\\tools\\esp-clang\\esp-19.1.2_20250312\\esp-clang\\bin\\clangd.exe",
+  "clangd.arguments": [
+    "--background-index",
+    "--query-driver=d:\\Espressif\\vscode\\tools\\xtensa-esp-elf\\esp-14.2.0_20241119\\xtensa-esp-elf\\bin\\xtensa-esp32s3-elf-gcc.exe",
+    "--compile-commands-dir=e:\\Code File\\esp-idf\\examples\\lvgl_common_demo\\build"
+  ],
+  "idf.portWin": "COM3",
+  "idf.flashType": "UART",
+  "idf.currentSetup": "D:/Espressif/frameworks/esp-idf-v5.5.3/"
+}

@@ -1,0 +1,18 @@
+dependencies:
+  idf:
+    version: ">=5.5.0"
+
+  lvgl/lvgl:
+    version: "^9"
+    public: true
+
+  espressif/esp_lvgl_adapter:
+    version: "^0.1.0-beta.2"
+    public: true
+
+  hw_init:
+    version: "*"
+    override_path: "../common/hw_init"
+
+  espressif/button:
+    version: "*"
