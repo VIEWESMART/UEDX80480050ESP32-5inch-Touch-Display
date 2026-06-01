@@ -26,7 +26,7 @@ UEDX80480050E-WB-B is a high-performance smart display development board based o
   - 8 MB PSRAM.
   - 16 MB Flash.
 - **Peripheral Interfaces**
-  - Two 2\*20 Pin Headers are on-board, breaking out multiple programmable GPIOs, supporting SPI, UART, I2C, I2S, LCD, Camera, USB OTG, and other interfaces.
+  - Two 2\*21 Pin Headers are on-board, breaking out multiple programmable GPIOs, supporting SPI, UART, I2C, I2S, LCD, Camera, USB OTG, and other interfaces.
   - On-board USB Type-C port for power supply, programming, and serial debugging (CH340C).
   - On-board Micro SD card slot (SPI interface).
   - Reset and Boot buttons.
@@ -93,11 +93,13 @@ With rich connectivity and powerful processing capabilities, the UEDX80480050E-W
 9. **Reset Buttons**  
    RESET button (CHIP-EN) for resetting the board.
 
-10. **4-pin 1.5mm**  
+10. **4-pin 1.25mm**  
     You can choose to use I2C, UART and other interfaces according to your actual situation. If you are worried about interference, you can remove the RGB lights on the development board.
 
 11. & 12. **External GPIO Headers**  
     Dual-row 2\*21 headers providing access to a wide range of GPIOs, including ADC, touch sensors, and standard digital I/O.
+> [!NOTE]
+> Our company will select one of the two touch interfaces according to the actual screen configuration, and both will not be equipped simultaneously.
 
 #### Display Interface
 
@@ -141,6 +143,9 @@ With rich connectivity and powerful processing capabilities, the UEDX80480050E-W
 ### 2.2 GPIO Definition
 
 ![Pin Introduction](image/GPIO.png)
+
+> [!NOTE]
+> By default, IO18 is a common idle GPIO port. To use it as a touch interrupt pin, move the resistor from R28 to R33.
 
 ---
 
